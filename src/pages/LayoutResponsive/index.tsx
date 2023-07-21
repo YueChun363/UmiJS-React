@@ -33,7 +33,7 @@ export default (props: any) => (
           }}
         >
           <Link to="/" className={styles.logo}>
-            Logo
+            My Logo
           </Link>
 
           <Menu theme="dark" mode="inline" items={items} defaultSelectedKeys={['index']}></Menu>
