@@ -36,7 +36,12 @@ export default (props: any) => (
             My Logo
           </Link>
 
-          <Menu theme="dark" mode="inline" items={items} defaultSelectedKeys={['index']}></Menu>
+          <Menu
+            theme="dark"
+            mode="inline"
+            items={items}
+            defaultSelectedKeys={['index']}
+          ></Menu>
         </Sider>
         <Layout>
           <Header

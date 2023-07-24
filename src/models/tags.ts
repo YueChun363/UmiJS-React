@@ -1,9 +1,5 @@
 // dva model的名字要和UI组件对应，例如这里的组件是DVA.tsx
-import { request } from 'umi';
-
-const getTags = () => {
-  return request('/api/getTags');
-};
+import { getTags } from '@/service/tags';
 
 export default {
   // 调用model时，通过命名空间调用，唯一

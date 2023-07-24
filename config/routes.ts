@@ -16,9 +16,9 @@ export default [
   },
   {
     path: '/',
-    component: '@/pages/LayoutResponsive',
+    component: '@/layouts/LayoutResponsive',
     routes: [
-      { path: '/', component: '@/pages' },
+      { path: '/', component: '@/pages/Index' },
       { path: '/pageA', component: '@/pages/PageA' },
     ],
   },
