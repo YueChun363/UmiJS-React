@@ -19,5 +19,12 @@ export default defineConfig({
     immer: true,
     hmr: false,
   },
+  layout: {
+    // 支持任何不需要 dom 的
+    // https://procomponents.ant.design/components/layout#prolayout
+    name: 'Ant Design',
+    locale: false,
+    layout: 'side',
+  },
   fastRefresh: {},
 });
