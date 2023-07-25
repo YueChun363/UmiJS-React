@@ -22,7 +22,7 @@ request.interceptors.response.use((response) => {
       503: '服务不可用，服务器暂时过载或维护。',
       504: '网关超时。',
     };
-    message.error(codeMaps[response.status]);
+    message.error(codeMaps[response.status] || '请求出错了！');
   }
 
   return response;

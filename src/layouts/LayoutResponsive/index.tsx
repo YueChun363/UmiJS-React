@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './index.less';
 import { Layout, Menu } from 'antd';
-import { Link } from 'umi';
+import { Link, useIntl } from 'umi';
 import { UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { getLocale } from 'umi';
 
 const { Header, Content, Footer, Sider } = Layout;
 const items = [
@@ -18,49 +19,61 @@ const items = [
   },
 ];
 
-export default (props: any) => (
-  <div className={styles.container}>
-    <div id="components-layout-demo-responsive">
-      <Layout>
-        <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={(broken) => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
-          <Link to="/" className={styles.logo}>
-            My Logo
-          </Link>
-
-          <Menu
-            theme="dark"
-            mode="inline"
-            items={items}
-            defaultSelectedKeys={['index']}
-          ></Menu>
-        </Sider>
+export default (props: any) => {
+  console.log(getLocale());
+  const intl = useIntl();
+  return (
+    <div className={styles.container}>
+      <div id="components-layout-demo-responsive">
         <Layout>
-          <Header
-            className="site-layout-sub-header-background"
-            style={{ padding: 0 }}
-          />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div
-              className="site-layout-background"
-              style={{ padding: 24, minHeight: 360 }}
-            >
-              {props?.children || '无'}
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2018 Created by Ant UED
-          </Footer>
+          <Sider
+            breakpoint="lg"
+            collapsedWidth="0"
+            onBreakpoint={(broken) => {
+              console.log(broken);
+            }}
+            onCollapse={(collapsed, type) => {
+              console.log(collapsed, type);
+            }}
+          >
+            <Link to="/" className={styles.logo}>
+              {intl.formatMessage(
+                {
+                  id: 'APP_WELCOME',
+                  defaultMessage: '你好，旅行者',
+                },
+                {
+                  name: 'yc',
+                },
+              )}
+            </Link>
+
+            <Menu
+              theme="dark"
+              mode="inline"
+              items={items}
+              defaultSelectedKeys={['index']}
+            ></Menu>
+          </Sider>
+          <Layout>
+            <Header
+              className="site-layout-sub-header-background"
+              style={{ padding: 0 }}
+            />
+            <Content style={{ margin: '24px 16px 0' }}>
+              <div
+                className="site-layout-background"
+                style={{ padding: 24, minHeight: 360 }}
+              >
+                {props?.children || '无'}
+              </div>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>
+              Ant Design ©2018 Created by Ant UED
+            </Footer>
+          </Layout>
         </Layout>
-      </Layout>
+      </div>
     </div>
-  </div>
-);
+  );
+};

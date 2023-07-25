@@ -26,5 +26,8 @@ pages放置页面组件；
 pages/*/components放置*页面自己需要使用的组件；
 service下放置所有的接口请求方法；
 utils下放置工具方法，如request拦截器；
+e2e下放置测试用例；
+locales下放至国际化文件；
+test下放置测试工具；
 
 
